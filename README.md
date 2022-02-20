@@ -3,11 +3,11 @@
 ![image](image/redhat.png)<br>
 &nbsp;&nbsp;[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT "MIT License")
 &nbsp;&nbsp;[![Active](http://img.shields.io/badge/Status-Active-green.svg)](https://github.com/soficx/)
- [![Maintenance](https://img.shields.io/badge/last%20updated-03--01--2022-pink)](https://github.com/soficx)
+ [![Maintenance](https://img.shields.io/badge/last%20updated-20--02--2022-pink)](https://github.com/soficx)
 
   ---
 **Description:** This is a collection of tasks,labs  that i used to practice and prepare for The Red Hat Certified System Administrator (RHCSA) 
-The information below is gatehered  from different resources books (Asghar Ghori, Sander van Vugt) github repos, telegram and slack channels
+The information below is gatehered  from different [resources](#resources) books (Asghar Ghori, Sander van Vugt) github repos, telegram and slack channels
 
 ---
 ## Talble of Contents
@@ -1057,7 +1057,7 @@ By default this service will start when the user login and stop when user logged
 	- Configure your host journal to store all journal across reboot, copy all *.journal from /var/log/journal and all subdirectories to /home/user10/container_logserver <br>
 	- Configure automount /var/log/journal from  logserver (container) to
 /home/user10/container_logserver when container starts.
-```
+```bash
 # podman search registry.redhat.io/rsyslog
 # podman login registry.redhat.io
   Username: 
@@ -1086,4 +1086,16 @@ By default this service will start when the user login and stop when user logged
 # systemctl --user status container-logserver
 # reboot		=> to make sure that the container is up and running
 
-``
+```
+
+### resources 
+
+  - RHCSA Red Hat Enterprise Linux 8 (UPDATED): Training and Exam Preparation Guide (EX200), Second Edition 
+
+  - Red Hat RHCSA 8 Cert Guide: EX200 (Certification Guide) 
+      by: Sander van Vugt 
+   
+  - [Github repo](https://github.com/jrandj/redhat/blob/master/README.md#Exercises)
+
+
+
