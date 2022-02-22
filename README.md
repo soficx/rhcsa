@@ -520,32 +520,6 @@ In server1:
 # cat /common/file
 ```
 -  ***Task 6 :***<br> 
-	Configure a direct map to automount the NFS share /common that is available from server2. Install the relevant software, create a local mount point /autodir, and set up AutoFS maps to support the automatic mounting. Note that /common is already mounted on the /local mount point on server1 via fstab. Ensure there is no conflict in configuration or functionality between the 2
-```
-# dnf install -y autofs
-# mkdir /autodir
-# vim /etc/auto.master
-	/-	 /etc/auto.master.d/auto.dir 
-# vim /etc/auto.master.d/auto.dir
-	/autodir	-rw   server1:/common
-```
--  ***Task 7:***<br> 
-	On server1 (NFS server), create a user account called user30 with UID 3000. Add the /home directory to the list of NFS shares so that it becomes available for remote mount. On server2 (NFS client), create a user account called user30 with UID 3000, base directory /nfshome, and no user home directory. establish an indirect map to automount the remote home directory of user30 under /nfshome. Observe that the home directory of user30 is automounted under /nfshome when you sign in as user30
-```
-# useradd -u 3000 user30 
-echo "/home/	client(rw,no_root_squash) >> /etc/exports
-On server2 : 
-# mkdir /nfshome
-# useradd -u 3000 user30 -b /nfshome  -M 
-# echo "/nfshome	/etc/auto.master.d/home" >> /etc/auto.master
-# echo "*	-rw		server1:/home/&" >> /etc/auto.master.d/home 
-# systemctl restart autofs.service 
-# su - user30 
-# df -h 
-```
-
-
--  ***Task 8 :***<br> 
 	 Create users user100, user200 and group sgrp with GID 9999. add user100 and user200 to this group.
 	 Create a directory /sdir with ownership and owning groups belong to root and sgrp, and set the setgid bit on /sdir  
 ```
@@ -559,9 +533,9 @@ On server2 :
 # touch file		=> all the files created in dir get the same grp owner
 # 
 ```
--  ***Task 6 :***<br> 
+-  ***Task 7:***<br> 
 	 Create a file under /tmp as user100 and try to delete it as user200. Unset the sticky bit on /tmp and try to erase the file again. Restore the sticky bit on /tmp
-```
+```bash
 # su - user100
 # touch /tmp/file100
 # su - user200 
@@ -569,6 +543,50 @@ On server2 :
 # chmod o-t /tmp		=> with root priv 
 # rm /tmp/file			 
 # chmod o+t /tmp
+```
+##### [Automount](#automount)
+-  ***Task 1 :***<br> 
+	Configure a direct map to automount the NFS share /common that is available from server2. Install the relevant software, create a local mount point /autodir, and set up AutoFS maps to support the automatic mounting. Note that /common is already mounted on the /local mount point on server1 via fstab. Ensure there is no conflict in configuration or functionality between the 2
+```bash
+# dnf install -y autofs
+# mkdir /autodir
+# vim /etc/auto.master
+	/-	 /etc/auto.master.d/auto.dir 
+# vim /etc/auto.master.d/auto.dir
+	/autodir	-rw   server1:/common
+```
+-  ***Task 2:***<br> 
+	On server1 (NFS server), create a user account called user30 with UID 3000. Add the /home directory to the list of NFS shares so that it becomes available for remote mount. On server2 (NFS client), create a user account called user30 with UID 3000, base directory /nfshome, and no user home directory. establish an indirect map to automount the remote home directory of user30 under /nfshome. Observe that the home directory of user30 is automounted under /nfshome when you sign in as user30
+```bash
+# useradd -u 3000 user30 
+echo "/home/	client(rw,no_root_squash)" >> /etc/exports
+On server2 : 
+ mkdir /nfshome
+ useradd -u 3000 user30 -b /nfshome  -M 
+ echo "/nfshome	/etc/auto.master.d/home" >> /etc/auto.master
+ echo "*	-rw		server1:/home/&" >> /etc/auto.master.d/home 
+ systemctl restart autofs.service 
+ su - user30 
+ df -h 
+```
+-  ***Task 3 :***<br> 
+    Configura Autofs 
+    - All Ldapuser2 home directory is exported via NFS, which is available on classroom.example.com (172.25.254.254) and your NFS-exports directory is **/home/guests for Ldapuser2**,
+    - Ldapuser2's home directory is classroom.example.com:/home/guests/ldapuse2
+    - Ldapuser2's home directory should be automount autofs service.
+    - Home directories must be writable by their users.
+   while you are able to log in as any of the user ldapuser1 through ldapuser20, the only home directory that is accessible from your system is ldapsuser2
+
+```bash
+# yum install -y autofs
+# vim /etc/auto.master.d/home.autofs 
+  /home/guests   /etc/auto.home
+# vim /etc/auto.home
+  * -rw classroom.example.com:/home/guests/&
+# systemctl enable --now autofs.service
+# ssh ldapuser5@localhost
+# cd
+# pwd  # /home/guests/ldapuser5
 ```
 #### Layered Storage: <br>
 
