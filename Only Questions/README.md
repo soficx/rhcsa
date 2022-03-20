@@ -167,7 +167,7 @@ The information below is gatehered  from different [resources](#resources) books
 	 Create a file under /tmp as user100 and try to delete it as user200. Unset the sticky bit on /tmp and try to erase the file again. Restore the sticky bit on /tmp
 
 
-##### [Automount](#automount)
+### Automount 
 
 -  ***Task 1 :***<br> 
 	Configure a direct map to automount the NFS share /common that is available from server2. Install the relevant software, create a local mount point /autodir, and set up AutoFS maps to support the automatic mounting. Note that /common is already mounted on the /local mount point on server1 via fstab. Ensure there is no conflict in configuration or functionality between the 2
@@ -184,7 +184,7 @@ The information below is gatehered  from different [resources](#resources) books
    while you are able to log in as any of the user ldapuser1 through ldapuser20, the only home directory that is accessible from your system is ldapsuser2
 
 
-#### Layered Storage: <br>
+### Layered Storage: <br>
 
 -  ***Task 1 :***<br> 
 	 Install the VDO software packages, start the VDO services, and mark it for autostart on subsequent reboots
