@@ -1,6 +1,6 @@
 ### :star:  RHCSA 
   ---
-![image](image/redhat.png)<br>
+![image](rhcsa/image/redhat.png)<br>
 &nbsp;&nbsp;[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT "MIT License")
 &nbsp;&nbsp;[![Active](http://img.shields.io/badge/Status-Active-green.svg)](https://github.com/soficx/)
  [![Maintenance](https://img.shields.io/badge/last%20updated-20--02--2022-pink)](https://github.com/soficx)
