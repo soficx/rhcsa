@@ -187,7 +187,7 @@ The information below is gatehered  from different [resources](#resources) books
    while you are able to log in as any of the user ldapuser1 through ldapuser20, the only home directory that is accessible from your system is ldapsuser2
 
 
-### Layered Storage: <br>
+### Layered Storage
 
 -  ***Task 1 :***<br> 
 	 Install the VDO software packages, start the VDO services, and mark it for autostart on subsequent reboots
