@@ -547,7 +547,7 @@ In server1:
 # rm /tmp/file			 
 # chmod o+t /tmp
 ```
-#### [Automount](#automount)
+#### Automount
 -  ***Task 1 :***<br> 
 	Configure a direct map to automount the NFS share /common that is available from server2. Install the relevant software, create a local mount point /autodir, and set up AutoFS maps to support the automatic mounting. Note that /common is already mounted on the /local mount point on server1 via fstab. Ensure there is no conflict in configuration or functionality between the 2
 ```bash
