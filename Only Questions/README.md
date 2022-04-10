@@ -16,11 +16,14 @@ The information below is gatehered  from different [resources](#resources) books
 - [Operate running systems](#operate-running-systems)
 - [Configure local storage](#configure-local-storage)
 - [Create and configure file systems](#create-and-configure-file-systems)
+- [Automount](#automount)
+- [Layered Storage](#layered-storage)
 - [Deploy configure and maintain systems](#deploy-configure-and-maintain-systems)
 - [Manage basic networking](#manage-basic-networking)
 - [Manage users and groups](#manage-users-and-groups)
 - [Manage security](#manage-security)
 - [Manage containers](#manage-containers)
+- [Resources](#resources)
 
 ### Understand and use essential tools
 

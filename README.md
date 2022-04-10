@@ -16,11 +16,14 @@ The information below is gatehered  from different [resources](#resources) books
 - [Operate running systems](#operate-running-systems)
 - [Configure local storage](#configure-local-storage)
 - [Create and configure file systems](#create-and-configure-file-systems)
+- [Automount](#automount)
+- [Layered Storage](#layered-storage)
 - [Deploy configure and maintain systems](#deploy-configure-and-maintain-systems)
 - [Manage basic networking](#manage-basic-networking)
 - [Manage users and groups](#manage-users-and-groups)
 - [Manage security](#manage-security)
 - [Manage containers](#manage-containers)
+- [Resources](#resources)
 
 ### Understand and use essential tools
 
@@ -544,7 +547,7 @@ In server1:
 # rm /tmp/file			 
 # chmod o+t /tmp
 ```
-##### [Automount](#automount)
+#### [Automount](#automount)
 -  ***Task 1 :***<br> 
 	Configure a direct map to automount the NFS share /common that is available from server2. Install the relevant software, create a local mount point /autodir, and set up AutoFS maps to support the automatic mounting. Note that /common is already mounted on the /local mount point on server1 via fstab. Ensure there is no conflict in configuration or functionality between the 2
 ```bash
