@@ -591,7 +591,7 @@ On server2 :
 # cd
 # pwd  # /home/guests/ldapuser5
 ```
-#### Layered Storage: <br>
+#### Layered Storage <br>
 
 -  ***Task 1 :***<br> 
 	 Install the VDO software packages, start the VDO services, and mark it for autostart on subsequent reboots
