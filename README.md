@@ -46,14 +46,14 @@ The information below is gatehered  from different [resources](#resources) books
 
 ```
     Gzip: 
-  # tar cvfz home.tar.gz /home
+  # tar zcvf home.tar.gz /home
   # tar -tf home.tar.gz
-  # tar xvfz home.tar.gz 
+  # tar zxvf home.tar.gz 
 
    Bzip2: 
-  # tar cvfj home.tar.bz2 /home
+  # tar jcvf home.tar.bz2 /home
   # tar -t home.tar.dz2
-  # tar xvfj home.tar.bz2 
+  # tar jxvf home.tar.bz2 
 ```
 
 -  ***Task 4 :***<br> 
@@ -178,7 +178,7 @@ There are multiple methods to do that
 # chmod +x /root/backup.sh
 #/root/backup.sh
 # crontab -e 
-* 23 * * 1-6 /root/backup.sh
+0 23 * * 1-6 /root/backup.sh
 ```
 
 ### Operate running systems 
